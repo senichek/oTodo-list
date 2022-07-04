@@ -1,5 +1,18 @@
 // This file handles the clicks;
 const app  = {
+    sortable: {},
+
+    initSortable: () => {
+        // Responsible for drag-and-drop
+        var el = document.getElementById('task-list');
+        app.sortable = Sortable.create(el, {
+            onEnd: function (/**Event*/evt) {
+                debugger
+                console.log("Order", app.sortable.toArray());
+            }
+        });
+    },
+
     baseURL: "http://localhost:3000",
     // Removes the error message on click
     handleErrorNotification: () => {
@@ -216,6 +229,7 @@ const app  = {
     },
 
     init: () => {
+        app.initSortable();
         app.closeModal();
         app.handleErrorNotification();
         app.handleDeleteTaskClick();

@@ -246,16 +246,18 @@ li a {
   outline: none;
   padding-bottom: 0.5rem;
   font-weight: bolder;
+  color: #0071a6;
 }
 
 .submit-task {
-  background-color: #0a7db3;
-  color: #f29a30;
-  padding: 0.3rem 1rem;
+  background-color: #f29a30;
+  width: 10rem;
+  height: 2rem;
   border-radius: 5px;
+  border: 0;
+  color: #0071a6;
   font-weight: bold;
-  outline: none;
-  border: 2px solid #f29a30;
+  letter-spacing: 0.1rem;
 }
 
 

@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS "task_has_tag";
 DROP TABLE IF EXISTS "tasks";
 DROP TABLE IF EXISTS "tags";
 DROP TABLE IF EXISTS "users";
+DROP TABLE IF EXISTS "positions";
 
 CREATE TABLE "users" (
     id SERIAL UNIQUE,
@@ -30,6 +31,14 @@ CREATE TABLE "task_has_tag" (
     id SERIAL,
     task_id INTEGER REFERENCES tasks(id) ON DELETE CASCADE,
     tag_id INTEGER REFERENCES tags(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT now(),
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE "positions" (
+    id SERIAL UNIQUE,
+    owner INTEGER,
+    positions TEXT,
     created_at TIMESTAMP DEFAULT now(),
     updated_at TIMESTAMP
 );
