@@ -1,0 +1,59 @@
+<%- include('./partials/header')%>
+<%- include('./partials/navigation')%>
+<div class="add-task-btn-container ">
+  <div class="add-task-btn">Add task</div>
+</div>
+        <div class="task-list">
+            <% for (const task of tasks) { %>
+                <div class="task" data-task-id= <%=task.id %> >
+                    <h1 class="task-name"> <%= task.name %> </h1>
+                    <!-- <a href="/task/delete/<%= task.id %>">
+                        <i class="bi bi-trash-fill" id="task-icons"></i>
+                    </a> -->
+                    <i class="bi bi-trash-fill" id="task-icons-delete" data-task-id= <%=task.id %> ></i>
+                    <i class="bi bi-pencil-square" id="task-icons-edit" data-task-id= <%=task.id %> ></i>
+                    <div class="tags-container">
+                        <% for (tag of task.Tags) { %>
+                       <i class="bi bi-tag" id="tag-icon" data-task-id= <%=task.id %> ><%= tag.name %></i>
+                        <% } %>
+                        <!-- Add new tag icon -->
+                        <i class="bi bi-plus-circle-fill" id="tag-icon" data-task-id= <%=task.id %> > </i>
+                    </div>
+                    <h2 class="task-date"> <%= task.created_at.toString().slice(0, 28) %> </h2>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="modal" id="add-tag-modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Choose Tag</p>
+                <button class="delete" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                <!-- Content is created using script.js... -->
+              </section>
+            </div>
+          </div>
+
+          <div class="modal" id="add-task-modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Create new task</p>
+                <button class="delete" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+                <!-- Content  -->
+                <form action="/tasks" method="post">
+                  <div class="task-input-container">
+                    <label for="taskname">Title:</label><br>
+                    <input type="text" id="taskname" name="taskname" required>
+                  </div>
+                  <input type="submit" value="Submit" class="submit-task">
+                </form> 
+              </section>
+            </div>
+          </div>
+ <%- include('./partials/footer')%>

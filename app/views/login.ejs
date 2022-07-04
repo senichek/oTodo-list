@@ -1,0 +1,40 @@
+<%- include('./partials/header')%>
+        <div class="app-title-container">
+            <h1 class="app-title">
+                Kanban Wannabee
+            </h1>
+        </div>
+        <div class="login-container">
+            <h2 class="login-title">Login</h2>
+            <form action="/login" method="post">
+                <div>
+                    <input class="login-input" type="text" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <input class="login-input" type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div>
+                    <input class="login-button" type="submit" value="Submit">
+                </div>
+                <div class="sign-up-div">
+                    <a class="signup-link" href="/register">Sign Up</a>
+                </div>
+              </form> 
+        </div>
+        <div class="login-info-container">
+            <i class="bi bi-info-square-fill"> Click for login info</i>
+            <div class="login-info" hidden>
+                <p>There are two test-users in DB:</p>
+                <p>1. john@gmail.com</p>
+                <p>2. jane@gmail.com</p>
+                <p>Both passwords are: pass111</p>
+            </div>
+        </div>
+
+        <% if (locals.message) { %>
+                <div class="error-notification">
+                    <%= locals.message %>
+                </div>
+        <% } %>
+    
+<%- include('./partials/footer')%>

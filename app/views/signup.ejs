@@ -1,0 +1,39 @@
+<%- include('./partials/header')%>
+        <div class="app-title-container">
+            <h1 class="app-title">
+                Kanban Wannabee
+            </h1>
+        </div>
+        <div class="login-container">
+            <h2 class="login-title">Sign Up</h2>
+            <form action="/register" method="post">
+                <div>
+                    <input class="login-input" type="text" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <input class="login-input" type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div>
+                    <input class="login-input" type="password" id="confirmation" name="confirmation" placeholder="Confirm password" required>
+                </div>
+                <div>
+                    <input class="login-button" type="submit" value="Submit">
+                </div>
+                <div class="sign-up-div">
+                    <a class="signup-link" href="/login">Log in</a>
+                </div>
+              </form> 
+        </div>
+        <% if (locals.message) { %>
+                <div class="error-notification">
+                    <%= locals.message %>
+                </div>
+        <% } %>
+
+        <% if (locals.exists) { %>
+            <div class="success-notification">
+                <%= locals.exists %>
+            </div>
+    <% } %>
+    
+<%- include('./partials/footer')%>
