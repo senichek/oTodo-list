@@ -11,7 +11,8 @@ const sequelize = new Sequelize(
       ssl: {
         require: true,
         rejectUnauthorized: false
-      },
+      }
+    },
     define: {
       updatedAt: "updated_at",
       createdAt: "created_at"
