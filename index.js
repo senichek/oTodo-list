@@ -34,6 +34,6 @@ app.use(createSession);
 
 app.use(router);
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Server has started on port ${port}`);
 });
