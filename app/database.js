@@ -8,8 +8,10 @@ const sequelize = new Sequelize(
     host: "ec2-54-228-218-84.eu-west-1.compute.amazonaws.com",
     dialect: "postgres",
     dialectOptions: {
-      "ssl": true
-    },
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      },
     define: {
       updatedAt: "updated_at",
       createdAt: "created_at"
