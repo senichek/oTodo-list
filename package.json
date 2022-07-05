@@ -14,7 +14,8 @@
     "sequelize": "^6.21.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "olexiy senichek",
   "license": "ISC"
