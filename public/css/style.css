@@ -423,18 +423,6 @@ li a {
     height: auto;
     width: 80%; 
   }
-
-  body {
-    margin-bottom: 3rem;
-  }
-
-  .app-title {
-    padding-top: 3rem;
-  }
-
-  .app-title-container {
-    height: 10rem;
-  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -448,5 +436,17 @@ li a {
 
   .login-input {
     width: 70%;
+  }
+
+  body {
+    margin-bottom: 5rem;
+  }
+
+  .app-title {
+    padding-top: 3rem;
+  }
+
+  .app-title-container {
+    height: 10rem;
   }
 }
