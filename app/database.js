@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   {
-    host: "localhost",
+    host: "ec2-54-228-218-84.eu-west-1.compute.amazonaws.com",
     dialect: "postgres",
     define: {
       updatedAt: "updated_at",
