@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const router = require("./app/router");
-var expressSession = require("express-session");
+var expressSession = require('cookie-session');
 const createSession = require("./app/middlewares/session_init");
 
 const app = express();
