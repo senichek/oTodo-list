@@ -185,6 +185,9 @@ const app  = {
                                         method: "POST"
                                     });
                                     console.log("Attached tag", response);
+                                    // Clear the modal content
+                                    const tagsCollectionElement = document.querySelector(".tags-collection-container");
+                                    tagsCollectionElement.remove();
                                     // Hide modal afte the tag has been added
                                     modalElement.classList.remove("is-active");
                                 }
