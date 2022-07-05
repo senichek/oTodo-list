@@ -270,12 +270,12 @@ li a {
   --intro-background-color: #0071a6;
   --intro-link-color: #0071a6;
   --intro-link-background-color: #f29a30;
-  --intro-link-hover-color: #245ac0;
+  --intro-link-hover-color: #c8eafa;
   --articles-container-bottom-border-color: #0071a6;
   --article-link-color: #ffffff;
   --article-link-background-color: #0071a6;
   --article-text-color: #0071a6;
-  --article-link-hover-color: #4d4d4d;
+  --article-link-hover-color: #ff6f0f;
   --footer-text-color: #cbf54a;
   --footer-text-background-color: #2c2c2c;
 }
