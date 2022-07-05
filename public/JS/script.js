@@ -185,6 +185,8 @@ const app  = {
                                         method: "POST"
                                     });
                                     console.log("Attached tag", response);
+                                    // Hide modal afte the tag has been added
+                                    modalElement.classList.remove("is-active");
                                 }
                         }
                    })
@@ -199,7 +201,7 @@ const app  = {
                 const tagsCollectionElement = document.querySelector(".tags-collection-container");
                 tagsCollectionElement.remove();
                 // Hide modal
-                modalElement.classList.remove("is-active");
+                //modalElement.classList.remove("is-active");
             })
         }
     },
