@@ -199,7 +199,7 @@ const app  = {
                 const tagsCollectionElement = document.querySelector(".tags-collection-container");
                 tagsCollectionElement.remove();
                 // Hide modal
-                //modalElement.classList.remove("is-active");
+                modalElement.classList.remove("is-active");
             })
         }
     },
