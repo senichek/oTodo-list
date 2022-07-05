@@ -27,7 +27,7 @@ const app  = {
         }
     },
 
-    baseURL: "http://localhost:3000",
+    baseURL: "https://to-do-list-olexiy.herokuapp.com",
     // Removes the error message on click
     handleErrorNotification: () => {
         const errorNotificationElement = document.querySelector(".error-notification");

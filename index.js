@@ -17,6 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://to-do-list-olexiy.herokuapp.com/'
+}));
+
 //app.set('trust proxy', 1) // trust first proxy
 app.use(
   expressSession({
