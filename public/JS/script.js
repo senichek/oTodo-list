@@ -5,12 +5,26 @@ const app  = {
     initSortable: () => {
         // Responsible for drag-and-drop
         var el = document.getElementById('task-list');
-        app.sortable = Sortable.create(el, {
-            onEnd: function (/**Event*/evt) {
-                debugger
-                console.log("Order", app.sortable.toArray());
-            }
-        });
+        if (el) {
+            app.sortable = Sortable.create(el, {
+                onEnd: async function (evt) {
+                    // Every time you drag-and-drop this code will be invoqued
+                    const data = {
+                        positions: app.sortable.toArray().join('|')
+                    }
+    
+                    const response = await fetch(`${app.baseURL}/positions`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                            // 'Content-Type': 'application/x-www-form-urlencoded',
+                          },
+                        body: JSON.stringify(data) // body data type must match "Content-Type" header
+                      });
+                    console.log("Saved positions", response);
+                }
+            });
+        }
     },
 
     baseURL: "http://localhost:3000",

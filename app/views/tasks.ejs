@@ -5,11 +5,10 @@
 </div>
         <div class="task-list" id="task-list">
             <% for (const task of tasks) { %>
+              <!-- Sortable needs data-id attr, I've added this span for the sake of it -->
+              <span data-id=<%=task.id %>>
                 <div class="task" data-task-id= <%=task.id %> >
                     <h1 class="task-name"> <%= task.name %> </h1>
-                    <!-- <a href="/task/delete/<%= task.id %>">
-                        <i class="bi bi-trash-fill" id="task-icons"></i>
-                    </a> -->
                     <i class="bi bi-trash-fill" id="task-icons-delete" data-task-id= <%=task.id %> ></i>
                     <i class="bi bi-pencil-square" id="task-icons-edit" data-task-id= <%=task.id %> ></i>
                     <div class="tags-container">
@@ -21,6 +20,7 @@
                     </div>
                     <h2 class="task-date"> <%= task.created_at.toString().slice(0, 28) %> </h2>
                 </div>
+              </span>
             <% } %>
         </div>
 

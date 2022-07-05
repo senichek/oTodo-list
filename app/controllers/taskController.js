@@ -1,4 +1,5 @@
 const { Task, Tag } = require("../models/associations");
+const Position = require("../models/Position");
 
 const taskController = {
   getAllByUserId: async (req, res) => {
@@ -20,9 +21,32 @@ const taskController = {
         }
       }
 
-      res.render("tasks", { title: "Tasks", tasks });
+      // If the order (positions) exist sort the tasks
+      // according to the order (to maintain the drag-and-drop positions
+      // after the page reload).
+      const posisionsDbResponse = await Position.findAll({where: {
+        owner: req.session.user.id
+      }})
 
-      console.log("DBresponse", dbResponse);
+      // Sort the tasks according to the positions
+      const sortedTasks = [];
+      if ((posisionsDbResponse).length > 0) {
+        const positions = posisionsDbResponse[0].get().positions.split('|');
+        // position name = task id.
+        for (const position of positions) {
+          for (const task of tasks) {
+            if (position === task.id.toString()) {
+              sortedTasks.push(task);
+            }
+          }
+        }
+      }
+      console.log("Tasks from DB", dbResponse);
+      if (sortedTasks.length > 0) {
+        res.render("tasks", { title: "Tasks", tasks: sortedTasks });
+      } else {
+        res.render("tasks", { title: "Tasks", tasks });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +88,24 @@ const taskController = {
         owner: req.session.user.id,
         id: taskId
         }});
-        console.log("Deleted", deleted);
+        console.log("Deleted task", deleted);
+        // You must also delete the task's position from the 
+        // "positions" table.
+        const positionsDbResponse = await Position.findAll({where: {
+          owner: req.session.user.id
+        }});
+
+        if (positionsDbResponse.length > 0) {
+          const positions = positionsDbResponse[0].get().positions.split('|');
+          const updatedPositions = positions.filter(p => p !== taskId);
+          const updatedPositionsAsString = updatedPositions.join('|')
+          const updated = await Position.update({ positions: updatedPositionsAsString }, {
+            where: {
+                // The logged-in user
+              owner: req.session.user.id
+            }
+          });
+        }
         res.sendStatus(204);
       } else {
         return;
@@ -81,6 +122,21 @@ const taskController = {
       res.status(404).json({message: "invalid input"});
     } else {
       const created = await Task.create({ name: taskName, owner: req.session.user.id });
+      // Update positions. The position of new task is equal its ID
+      const posisionsDbResponse = await Position.findAll({where: {
+        owner: req.session.user.id
+      }})
+      if ((posisionsDbResponse).length > 0) {
+        const positions = posisionsDbResponse[0].get().positions.split('|');
+        positions.push(created.get().id);
+        const positionsAsString = positions.join('|');
+        await Position.update({ positions: positionsAsString }, {
+          where: {
+              // The logged-in user
+            owner: req.session.user.id
+          }
+        });
+      }
       console.log("Created task", created);
       res.redirect("/tasks");
     }

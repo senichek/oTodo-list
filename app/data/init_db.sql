@@ -72,3 +72,6 @@ INSERT INTO "task_has_tag" (task_id, tag_id) VALUES (5, 2);
 INSERT INTO "task_has_tag" (task_id, tag_id) VALUES (6, 2);
 INSERT INTO "task_has_tag" (task_id, tag_id) VALUES (6, 4);
 
+INSERT INTO "positions" (owner, positions) VALUES (1, '1|2|3');
+INSERT INTO "positions" (owner, positions) VALUES (2, '1|2|3');
+
