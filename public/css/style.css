@@ -129,6 +129,8 @@ footer {
 .login-info {
   font-style: italic;
   font-weight: 400;
+  padding-bottom: 5rem;
+  
 }
 
 /* colors of <a> are inherited from bumla
@@ -443,6 +445,6 @@ li a {
   }
 
   .app-title-container {
-    height: 10rem;
+    height: 7rem;
   }
 }
