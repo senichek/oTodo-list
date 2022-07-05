@@ -59,7 +59,7 @@ body {
 }
 
 footer {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   background-color: #0071a6;
   min-width: 100%;
@@ -436,10 +436,6 @@ li a {
 
   .login-input {
     width: 70%;
-  }
-
-  body {
-    margin-bottom: 5rem;
   }
 
   .app-title {
