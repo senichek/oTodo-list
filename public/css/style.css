@@ -22,7 +22,7 @@ body {
   border-radius: 10px;
   margin: 2rem auto;
   max-width: 400px;
-  min-width: 300px;
+  min-width: 200px;
   text-align: center;
   box-shadow: 8px 8px 7px #d9d9d9;
 }
@@ -426,8 +426,15 @@ li a {
 }
 
 @media only screen and (max-width: 400px) {
+  .login-container {
+    width: 200px;
+  }
 
   .app-title {
     font-size: 1.5rem;
+  }
+
+  .login-input {
+    width: 70%;
   }
 }
