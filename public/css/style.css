@@ -59,7 +59,7 @@ body {
 }
 
 footer {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   background-color: #0071a6;
   min-width: 100%;
