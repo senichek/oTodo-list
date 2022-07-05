@@ -75,7 +75,7 @@ const userController = {
 
   logout: (req, res) => {
     if (req.session.user) {
-      req.session.destroy();
+      req.session = null;
       res.redirect("/login");
     }
   }
