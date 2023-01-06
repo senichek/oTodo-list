@@ -17,7 +17,7 @@ Position.init({
   // Other model options go here
   sequelize, // We need to pass the connection instance
   modelName: 'Position', // We need to choose the model name
-  tableName: "positions"
+  tableName: "positions_todo"
 });
 
 module.exports = Position;

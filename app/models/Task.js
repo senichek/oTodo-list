@@ -17,7 +17,7 @@ Task.init({
   // Other model options go here
   sequelize, // We need to pass the connection instance
   modelName: 'Task', // We need to choose the model name
-  tableName: "tasks"
+  tableName: "tasks_todo"
 });
 
 module.exports = Task;

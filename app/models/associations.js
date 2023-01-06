@@ -9,7 +9,7 @@ Task.belongsTo(User, {
     foreignKey: "owner"
 });
 
-Tag.belongsToMany(Task, { through: 'task_has_tag', foreignKey: "tag_id" });
-Task.belongsToMany(Tag, { through: 'task_has_tag', foreignKey: "task_id" });
+Tag.belongsToMany(Task, { through: 'task_has_tag_todo', foreignKey: "tag_id" });
+Task.belongsToMany(Tag, { through: 'task_has_tag_todo', foreignKey: "task_id" });
 
 module.exports = { User, Task, Tag };

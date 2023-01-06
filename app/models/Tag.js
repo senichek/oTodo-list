@@ -13,7 +13,7 @@ Tag.init({
   // Other model options go here
   sequelize, // We need to pass the connection instance
   modelName: 'Tag', // We need to choose the model name
-  tableName: "tags"
+  tableName: "tags_todo"
 });
 
 module.exports = Tag;
