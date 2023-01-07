@@ -5,7 +5,7 @@ const sequelize = new Sequelize(
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   {
-    host: "ec2-63-33-36-236.eu-west-1.compute.amazonaws.com",
+    host: env.DB_HOST,
     dialect: "postgres",
     dialectOptions: {
       ssl: {
